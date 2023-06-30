@@ -1,6 +1,6 @@
 import { useState,useRef } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useAuthContext } from "../provider/AuthProvider";
 
 function RegisterForm(props){
     function handleClick(e){
@@ -10,7 +10,7 @@ function RegisterForm(props){
 
     const [data,setData]=useState({firstname:"",lastname:"",email:"",password:""});
     const [error,setError]=useState(false);
-
+    const {user,login}=useAuthContext();
 
     const refFirstName=useRef(null);
     const refLastName=useRef(null);
@@ -29,10 +29,12 @@ function RegisterForm(props){
             body:JSON.stringify(data)
         })
         .then(response=>response.json())
-        .then(data=>{
+        .then(datas=>{
             console.log(data);
-            if(data.status==="success"){
+            if(datas.status==="success"){
                 setError(false);
+                console.log(user);
+                login(data.email);
                 navigate("/todo");
             }
             else{

@@ -1,6 +1,7 @@
 // import { useEffect } from "react";
 import { useState,useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../provider/AuthProvider";
 function LoginForm(props){
     function handleClick(e){
         e.preventDefault();
@@ -8,7 +9,7 @@ function LoginForm(props){
         
     }
 
-
+    const {user,login}=useAuthContext();
 
 
 
@@ -35,7 +36,10 @@ function LoginForm(props){
             console.log(datas);
             if(datas.status==="success"){
                 setError(false);
+                console.log(user);
+                login(data.email);
                 navigate("/todo");
+                
 
             }
             else{

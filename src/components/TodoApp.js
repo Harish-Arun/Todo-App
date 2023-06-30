@@ -1,4 +1,4 @@
-import { useState,useRef } from "react";
+import { useState,useRef,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../provider/AuthProvider";
 
@@ -6,13 +6,18 @@ import { useAuthContext } from "../provider/AuthProvider";
 function Dates(props){
 
     var datetime=new Date(props.date);
+    var date=datetime.toLocaleString("en-us", {year: 'numeric', month: 'numeric', day: 'numeric'});
+    var time=datetime.toLocaleString("en-us", {hour: '2-digit', minute: '2-digit', second: "2-digit"});
+
+
 
     return(
         <div>
             <p className="font-bold">Due on: </p>     
             <div className="flex flex-row">
-                <p>Date: {`${datetime.getDate()}-${datetime.getMonth()}-${datetime.getFullYear()}`}</p>
-                <p>Time: {`${datetime.getHours()}:${datetime.getMinutes()}`}</p>
+                <p>Date: {date}</p>
+                <p>Time: {time}</p>
+                <p>{date}</p>
             </div> 
         </div>
     )
@@ -21,7 +26,7 @@ function Dates(props){
 
 
 function TodoApp(){
-    const {user}=useAuthContext();
+    const {user,logout}=useAuthContext();
     const [todo,setTodo]=useState({task:"" , due:"" , desc:""});
     const [allTodo,setAllTodo]=useState([]);
     
@@ -32,8 +37,15 @@ function TodoApp(){
 
     const handleLogout=(e)=>{
         e.preventDefault();
+        logout("");
         navigate('/');
     };
+
+    useEffect(()=>{
+        if(!user){
+            navigate('/');
+        }
+    })
 
     const handleShow=(e)=>{
         console.log(user);

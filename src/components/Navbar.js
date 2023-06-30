@@ -3,9 +3,8 @@ import { useAuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 function Navbar(){
-    const {user,setUser}=useAuthContext();
+    const {user}=useAuthContext();
     const navigate=useNavigate();
-    setUser("email");
     const handleClick= (e)=>{
         e.preventDefault()
         console.log(user);
