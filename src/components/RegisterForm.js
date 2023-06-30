@@ -21,7 +21,7 @@ function RegisterForm(props){
     const handleSubmit= (e)=>{
         e.preventDefault();
 
-        fetch("https://todo-app-restapi.onrender.com/auth/register",{
+        fetch("https://jade-gorgeous-binturong.cyclic.app//auth/register",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

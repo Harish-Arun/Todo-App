@@ -49,7 +49,7 @@ function TodoApp(){
 
     const handleShow=(e)=>{
         console.log(user);
-        fetch("https://todo-app-restapi.onrender.com/tasks",{
+        fetch("https://jade-gorgeous-binturong.cyclic.app//tasks",{
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -69,7 +69,7 @@ function TodoApp(){
 
         console.log(JSON.stringify(todo));
 
-        fetch("https://todo-app-restapi.onrender.com/tasks",{
+        fetch("https://jade-gorgeous-binturong.cyclic.app//tasks",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -93,7 +93,7 @@ function TodoApp(){
         console.log(index);
         const deldata={ _id:index};
         
-        fetch("https://todo-app-restapi.onrender.com/removetask",{
+        fetch("https://jade-gorgeous-binturong.cyclic.app//removetask",{
             method: "DELETE",
             headers:{
                 "Content-Type": "application/json"

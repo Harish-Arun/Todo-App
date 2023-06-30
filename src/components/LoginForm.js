@@ -24,7 +24,7 @@ function LoginForm(props){
     const navigate=useNavigate();
     const handleSubmit =(e)=>{
         e.preventDefault();
-        fetch("https://todo-app-restapi.onrender.com/auth/login",{
+        fetch("https://jade-gorgeous-binturong.cyclic.app//auth/login",{
             method: "POST",
             headers: {
                 "Content-Type":"application/json"
@@ -50,7 +50,7 @@ function LoginForm(props){
             }
             });
         
-        // fetch('https://todo-app-restapi.onrender.com/store',{
+        // fetch('https://jade-gorgeous-binturong.cyclic.app//store',{
         //     method: 'POST',
         //     body: JSON.stringify(msg)
         // }).then(function(res){
