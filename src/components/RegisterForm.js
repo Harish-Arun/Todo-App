@@ -21,7 +21,7 @@ function RegisterForm(props){
     const handleSubmit= (e)=>{
         e.preventDefault();
 
-        fetch("http://localhost:5000/auth/register",{
+        fetch("https://todo-app-restapi.onrender.com/auth/register",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -24,7 +24,7 @@ function LoginForm(props){
     const navigate=useNavigate();
     const handleSubmit =(e)=>{
         e.preventDefault();
-        fetch("http://localhost:5000/auth/login",{
+        fetch("https://todo-app-restapi.onrender.com/auth/login",{
             method: "POST",
             headers: {
                 "Content-Type":"application/json"
@@ -50,7 +50,7 @@ function LoginForm(props){
             }
             });
         
-        // fetch('http://localhost:5000/store',{
+        // fetch('https://todo-app-restapi.onrender.com/store',{
         //     method: 'POST',
         //     body: JSON.stringify(msg)
         // }).then(function(res){

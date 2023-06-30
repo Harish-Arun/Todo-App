@@ -49,7 +49,7 @@ function TodoApp(){
 
     const handleShow=(e)=>{
         console.log(user);
-        fetch("http://localhost:5000/tasks",{
+        fetch("https://todo-app-restapi.onrender.com/tasks",{
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -69,7 +69,7 @@ function TodoApp(){
 
         console.log(JSON.stringify(todo));
 
-        fetch("http://localhost:5000/tasks",{
+        fetch("https://todo-app-restapi.onrender.com/tasks",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -93,7 +93,7 @@ function TodoApp(){
         console.log(index);
         const deldata={ _id:index};
         
-        fetch("http://localhost:5000/removetask",{
+        fetch("https://todo-app-restapi.onrender.com/removetask",{
             method: "DELETE",
             headers:{
                 "Content-Type": "application/json"
