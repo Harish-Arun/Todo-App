@@ -1,4 +1,7 @@
 import { useState,useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../provider/AuthProvider";
+
 
 function Dates(props){
 
@@ -18,16 +21,22 @@ function Dates(props){
 
 
 function TodoApp(){
+    const {user}=useAuthContext();
     const [todo,setTodo]=useState({task:"" , due:"" , desc:""});
     const [allTodo,setAllTodo]=useState([]);
     
     const refTask=useRef(null);
     const refDue=useRef(null);
     const refDesc=useRef(null);
+    const navigate=useNavigate();
 
-    const handleLogout=()=>{};
+    const handleLogout=(e)=>{
+        e.preventDefault();
+        navigate('/');
+    };
 
     const handleShow=(e)=>{
+        console.log(user);
         fetch("http://localhost:5000/tasks",{
             method: "GET",
             headers: {

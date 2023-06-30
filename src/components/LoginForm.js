@@ -8,11 +8,17 @@ function LoginForm(props){
         
     }
 
+
+
+
+
     const [data,setData]=useState({email:"",password:""});
     const refEmail= useRef(null);
     const refPassword=useRef(null);
 
     const [error,setError]=useState(false);
+
+
 
     const navigate=useNavigate();
     const handleSubmit =(e)=>{
@@ -25,9 +31,9 @@ function LoginForm(props){
             body:JSON.stringify(data)
         })
         .then(response=>response.json())
-        .then(data=>{
-            console.log(data);
-            if(data.status==="success"){
+        .then(datas=>{
+            console.log(datas);
+            if(datas.status==="success"){
                 setError(false);
                 navigate("/todo");
 

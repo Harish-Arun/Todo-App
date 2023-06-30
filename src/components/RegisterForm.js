@@ -1,6 +1,7 @@
 import { useState,useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 function RegisterForm(props){
     function handleClick(e){
         e.preventDefault();
@@ -9,6 +10,7 @@ function RegisterForm(props){
 
     const [data,setData]=useState({firstname:"",lastname:"",email:"",password:""});
     const [error,setError]=useState(false);
+
 
     const refFirstName=useRef(null);
     const refLastName=useRef(null);
