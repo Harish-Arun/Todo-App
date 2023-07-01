@@ -37,7 +37,7 @@ function TodoApp(){
 
     const handleLogout=(e)=>{
         e.preventDefault();
-        fetch("http://localhost:5000/logout",{
+        fetch("https://jade-gorgeous-binturong.cyclic.app/logout",{
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -60,7 +60,7 @@ function TodoApp(){
 
     const handleShow=(e)=>{
         console.log(user);
-        fetch("http://localhost:5000/tasks",{
+        fetch("https://jade-gorgeous-binturong.cyclic.app/tasks",{
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -80,7 +80,7 @@ function TodoApp(){
 
         console.log(JSON.stringify(todo));
 
-        fetch("http://localhost:5000/tasks",{
+        fetch("https://jade-gorgeous-binturong.cyclic.app/tasks",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -104,7 +104,7 @@ function TodoApp(){
         console.log(index);
         const deldata={ _id:index};
         
-        fetch("http://localhost:5000/removetask",{
+        fetch("https://jade-gorgeous-binturong.cyclic.app/removetask",{
             method: "DELETE",
             headers:{
                 "Content-Type": "application/json"
