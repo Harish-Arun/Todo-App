@@ -37,8 +37,19 @@ function TodoApp(){
 
     const handleLogout=(e)=>{
         e.preventDefault();
-        logout("");
-        navigate('/');
+        fetch("http://localhost:5000/logout",{
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+        .then(response=>response.json())
+        .then(data=>{
+            if(data.status==="success"){
+                logout("");
+                navigate('/');
+            }
+        })
     };
 
     useEffect(()=>{
@@ -49,7 +60,7 @@ function TodoApp(){
 
     const handleShow=(e)=>{
         console.log(user);
-        fetch("https://jade-gorgeous-binturong.cyclic.app//tasks",{
+        fetch("http://localhost:5000/tasks",{
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -69,7 +80,7 @@ function TodoApp(){
 
         console.log(JSON.stringify(todo));
 
-        fetch("https://jade-gorgeous-binturong.cyclic.app//tasks",{
+        fetch("http://localhost:5000/tasks",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -93,7 +104,7 @@ function TodoApp(){
         console.log(index);
         const deldata={ _id:index};
         
-        fetch("https://jade-gorgeous-binturong.cyclic.app//removetask",{
+        fetch("http://localhost:5000/removetask",{
             method: "DELETE",
             headers:{
                 "Content-Type": "application/json"

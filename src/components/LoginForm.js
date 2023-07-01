@@ -24,7 +24,7 @@ function LoginForm(props){
     const navigate=useNavigate();
     const handleSubmit =(e)=>{
         e.preventDefault();
-        fetch("https://jade-gorgeous-binturong.cyclic.app//auth/login",{
+        fetch("http://localhost:5000/auth/login",{
             method: "POST",
             headers: {
                 "Content-Type":"application/json"
@@ -35,9 +35,10 @@ function LoginForm(props){
         .then(datas=>{
             console.log(datas);
             if(datas.status==="success"){
+                console.log(datas.user);
                 setError(false);
                 console.log(user);
-                login(data.email);
+                login(datas.user);
                 navigate("/todo");
                 
 
@@ -50,7 +51,7 @@ function LoginForm(props){
             }
             });
         
-        // fetch('https://jade-gorgeous-binturong.cyclic.app//store',{
+        // fetch('http://localhost:5000/store',{
         //     method: 'POST',
         //     body: JSON.stringify(msg)
         // }).then(function(res){

@@ -21,7 +21,7 @@ function RegisterForm(props){
     const handleSubmit= (e)=>{
         e.preventDefault();
 
-        fetch("https://jade-gorgeous-binturong.cyclic.app//auth/register",{
+        fetch("http://localhost:5000/auth/register",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -30,11 +30,11 @@ function RegisterForm(props){
         })
         .then(response=>response.json())
         .then(datas=>{
-            console.log(data);
+            console.log(datas);
             if(datas.status==="success"){
                 setError(false);
                 console.log(user);
-                login(data.email);
+                login(datas.user);
                 navigate("/todo");
             }
             else{
